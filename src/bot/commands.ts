@@ -22,21 +22,28 @@ export function registerCommands(bot: Telegraf): void {
 }
 
 async function handleStart(ctx: Context): Promise<void> {
-await ctx.reply(
-  `<span style="color:#D35400;"><b>🎉 به دستیار اینترنتی مرکز آموزش فنی و حرفه‌ای</b></span>\n` +
-  `<b>علامه بهلول گنابادی</b>\n\n` +
-  `<span style="color:#2980B9;"><b>📌 برای ادامه، یکی از گزینه‌های زیر را انتخاب کنید:</b></span>`,
-  { parse_mode: "HTML" }
-);
+	const startText = [
+  `*🎉 به دستیار اینترنتی مرکز آموزش فنی و حرفه‌ای* _علامه بهلول گنابادی_ خوش آمدید`,
+  ``,
+  `📌 برای ادامه، یکی از گزینه‌های زیر را انتخاب کنید`
+].join("\n");
+	
+await ctx.reply( startText,  { parse_mode: "Markdown" });
 }
 
 async function handleHelp(ctx: Context): Promise<void> {
-	const helpText = [
-		"*Available Commands*\n",
-		"/start - Start the bot",
-		"/help - Show this help message",
-		"\nBuilt with Telegraf + Cloudflare Workers.",
-	].join("\n");
+	const helpText = `
+📞 *راه‌های ارتباط با ما*
+
+برای راهنمایی و کسب اطلاعات بیشتر، می‌توانید از راه‌های زیر با ما در تماس باشید:
+
+• تلفن تماس: [۰۵۱-۵۷۲۸۸۳۵۱](tel:05157288351)
+• وب‌سایت: [مرکز آموزش فنی و حرفه‌ای علامه بهلول گنابادی](https://khrtvto.ir/portal-markaz7/)
+
+🕐 *ساعت پاسخگویی:* شنبه تا چهارشنبه، ۷:۳۰ صبح تا ۱۳ بعد از ظهر
+`;
+	
+
 
 	await ctx.reply(helpText, { parse_mode: "Markdown" });
 }
