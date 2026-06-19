@@ -10,7 +10,13 @@ export class Bot {
 
 	constructor(config: Config) {
 		this.config = config;
+		//برای اتصال به بله
 		this.telegraf = new Telegraf(config.botToken);
+		, {
+		  telegram: {
+		    apiRoot: 'https://tapi.bale.ai',
+		  },
+		}
 		registerCommands(this.telegraf);
 	}
 
