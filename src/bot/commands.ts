@@ -44,7 +44,7 @@ const examText = `
 
 const otherText = `
 🏅 *مسابقات ملی مهارت*
-[مشاهده مسابقات](https://skill.irantvto.ir)
+[مشاهده وبسایت مسابقات](https://skill.irantvto.ir)
 
 📋 *استانداردهای آموزشی*
 [مشاهده استانداردها](https://rpc.irantvto.ir/)
