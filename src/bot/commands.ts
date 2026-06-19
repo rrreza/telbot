@@ -19,10 +19,10 @@ const educationText = `
 [مشاهده دوره‌ها](https://khrtvto.ir/portals/%D9%85%D8%B1%DA%A9%D8%B2-%D8%A2%D9%85%D9%88%D8%B2%D8%B4-%D9%81%D9%86%DB%8C-%D9%88-%D8%AD%D8%B1%D9%81%D9%87-%D8%A7%DB%8C-%D8%B4%D9%85%D8%A7%D8%B1%D9%87-7-%DA%AF%D9%86%D8%A7%D8%A8%D8%A7%D8%AF-47/Frm_KarAmoozCourses.aspx)
 
 📝 *ثبت نام در پورتال آموزش*
-[ورود به پورتال ثبت‌نام](https://reg.irantvto.ir/course)
+[ثبت‌نام در دوره](https://reg.irantvto.ir/course)
 
 🌐 *پورتال آموزش*
-[ورود به پورتال اصلی](https://www.portaltvto.com/)
+[ورود به پورتال سازمان](https://www.portaltvto.com/)
 
 💰 *محاسبه تعرفه خدمات آموزشی*
 [محاسبه آنلاین تعرفه](https://mojavez.irantvto.ir/educalc)
@@ -30,7 +30,7 @@ const educationText = `
 
 const examText = `
 🎯 *کارت آزمون*
-[مشاهده و دریافت کارت](https://azmoon.portaltvto.com/card/card/index/1/80)
+[مشاهده و دریافت کارت ورود به جلسه آزمون](https://azmoon.portaltvto.com/card/card/index/1/80)
 
 📊 *نتایج آزمون*
 [مشاهده نتایج](https://azmoon.portaltvto.com/result/result/index/1/80)
@@ -39,7 +39,7 @@ const examText = `
 [پرداخت آنلاین](https://pay.portaltvto.com/pay/licence)
 
 🖨️ *دریافت پرینت گواهینامه*
-[دریافت پرینت](https://azmoon.portaltvto.com/estelam/estelam)
+[دریافت گواهینامه](https://azmoon.portaltvto.com/estelam/estelam)
 `;
 
 const otherText = `
@@ -47,7 +47,7 @@ const otherText = `
 [مشاهده وبسایت مسابقات](https://skill.irantvto.ir)
 
 📋 *استانداردهای آموزشی*
-[مشاهده استانداردها](https://rpc.irantvto.ir/)
+[مشاهده استانداردهای آموزشی](https://rpc.irantvto.ir/)
 `;
 
 // ---------- دکمه‌های منوی اصلی ----------
