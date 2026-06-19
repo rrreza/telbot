@@ -15,51 +15,28 @@ export function registerCommands(bot: Telegraf): void {
 	// Handle any text message that isn't a command
 	bot.on("message", handleMessage);
 
+	// Handle callback queries from inline buttons
+	bot.action("back_to_start", handleBackToStart);
+
 	// Global error handler
 	bot.catch((err, ctx) => {
 		logger.error("متاسفانه مشکلی در دستیار رخ داده است و قادر به پاسخگویی نیست", { error: err, update: ctx.update });
 	});
 }
 
-async function handleStart(ctx: Context): Promise<void> {
-	const startText = [
-  `*🎉 به دستیار اینترنتی مرکز آموزش فنی و حرفه‌ای* _علامه بهلول گنابادی_ خوش آمدید`,
-  ``,
-  `📌 برای ادامه، یکی از گزینه‌های زیر را انتخاب کنید`
-].join("\n");
-	
-await ctx.reply( startText,  { parse_mode: "Markdown" });
-}
-
-async function handleHelp(ctx: Context): Promise<void> {
-	const helpText = `
+// متن ثابت برای راهنمایی (برای جلوگیری از تکرار)
+const contactInfo = `
 📞 *راه‌های ارتباط با ما*
 
 برای راهنمایی و کسب اطلاعات بیشتر، می‌توانید از راه‌های زیر با ما در تماس باشید:
 
 • تلفن تماس: [۰۵۱-۵۷۲۸۸۳۵۱](tel:05157288351)
 • وب‌سایت: [مرکز آموزش فنی و حرفه‌ای علامه بهلول گنابادی](https://khrtvto.ir/portal-markaz7/)
-آدرس: گناباد - شهرک آیت‌الله مدنی(شهرک بیلند) - مرکز آموزش فنی و حرفه‌ای گناباد
+• آدرس: گناباد - شهرک آیت‌الله مدنی(شهرک بیلند) - مرکز آموزش فنی و حرفه‌ای گناباد
+
 🕐 *ساعت پاسخگویی:* شنبه تا چهارشنبه، ۷:۳۰ صبح تا ۱۳ بعد از ظهر
 `;
-	
 
-
-	await ctx.reply(helpText, { parse_mode: "Markdown" });
-}
-
-async function handleMessage(ctx: Context): Promise<void> {
-	const otherText = `
-
-
-برای راهنمایی و کسب اطلاعات بیشتر، می‌توانید از راه‌های زیر با ما در تماس باشید:
-
-• تلفن تماس: [۰۵۱-۵۷۲۸۸۳۵۱](tel:05157288351)
-• وب‌سایت: [مرکز آموزش فنی و حرفه‌ای علامه بهلول گنابادی](https://khrtvto.ir/portal-markaz7/)
-آدرس: گناباد - شهرک آیت‌الله مدنی(شهرک بیلند) - مرکز آموزش فنی و حرفه‌ای گناباد
-🕐 *ساعت پاسخگویی:* شنبه تا چهارشنبه، ۷:۳۰ صبح تا ۱۳ بعد از ظهر
-`;
-	
 // دکمه بازگشت به منوی اصلی
 const backButton = {
   reply_markup: {
@@ -69,6 +46,35 @@ const backButton = {
   }
 };
 
-	await ctx.reply(otherText, { parse_mode: "Markdown" }, ...backButton);
+async function handleStart(ctx: Context): Promise<void> {
+	const startText = [
+		`*🎉 به دستیار اینترنتی مرکز آموزش فنی و حرفه‌ای* _علامه بهلول گنابادی_ خوش آمدید`,
+		``,
+		`📌 برای ادامه، یکی از گزینه‌های زیر را انتخاب کنید`
+	].join("\n");
+	
+	await ctx.reply(startText, { parse_mode: "Markdown" });
 }
+
+async function handleHelp(ctx: Context): Promise<void> {
+	await ctx.reply(contactInfo, { parse_mode: "Markdown", ...backButton });
+}
+
+async function handleMessage(ctx: Context): Promise<void> {
+	// ارسال پیام راهنما با دکمه بازگشت
+	await ctx.reply(contactInfo, { parse_mode: "Markdown", ...backButton });
+}
+
+async function handleBackToStart(ctx: Context): Promise<void> {
+	// پاسخ به کلیک دکمه
+	await ctx.answerCbQuery();
+	
+	// ارسال مجدد پیام خوش‌آمدگویی
+	const startText = [
+		`*🎉 به دستیار اینترنتی مرکز آموزش فنی و حرفه‌ای* _علامه بهلول گنابادی_ خوش آمدید`,
+		``,
+		`📌 برای ادامه، یکی از گزینه‌های زیر را انتخاب کنید`
+	].join("\n");
+	
+	await ctx.reply(startText, { parse_mode: "Markdown" });
 }
