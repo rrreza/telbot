@@ -22,9 +22,12 @@ export function registerCommands(bot: Telegraf): void {
 }
 
 async function handleStart(ctx: Context): Promise<void> {
-	await ctx.reply(
-		"Welcome! I'm Telebot. A Telegram bot running on Cloudflare Workers, built by Adedoyin Emmanuel.\n\nUse /help to see available commands.",
-	);
+await ctx.reply(
+  `<span style="color:#D35400;"><b>🎉 به دستیار اینترنتی مرکز آموزش فنی و حرفه‌ای</b></span>\n` +
+  `<b>علامه بهلول گنابادی</b>\n\n` +
+  `<span style="color:#2980B9;"><b>📌 برای ادامه، یکی از گزینه‌های زیر را انتخاب کنید:</b></span>`,
+  { parse_mode: "HTML" }
+);
 }
 
 async function handleHelp(ctx: Context): Promise<void> {
