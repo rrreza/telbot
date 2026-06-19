@@ -17,7 +17,7 @@ export function registerCommands(bot: Telegraf): void {
 
 	// Global error handler
 	bot.catch((err, ctx) => {
-		logger.error("Bot error", { error: err, update: ctx.update });
+		logger.error("متاسفانه مشکلی در دستیار رخ داده است و قادر به پاسخگویی نیست", { error: err, update: ctx.update });
 	});
 }
 
@@ -39,7 +39,7 @@ async function handleHelp(ctx: Context): Promise<void> {
 
 • تلفن تماس: [۰۵۱-۵۷۲۸۸۳۵۱](tel:05157288351)
 • وب‌سایت: [مرکز آموزش فنی و حرفه‌ای علامه بهلول گنابادی](https://khrtvto.ir/portal-markaz7/)
-
+آدرس: گناباد - شهرک آیت‌الله مدنی(شهرک بیلند) - مرکز آموزش فنی و حرفه‌ای گناباد
 🕐 *ساعت پاسخگویی:* شنبه تا چهارشنبه، ۷:۳۰ صبح تا ۱۳ بعد از ظهر
 `;
 	
@@ -49,5 +49,26 @@ async function handleHelp(ctx: Context): Promise<void> {
 }
 
 async function handleMessage(ctx: Context): Promise<void> {
-	await ctx.reply("I received your message! Use /help to see what I can do.");
+	const otherText = `
+
+
+برای راهنمایی و کسب اطلاعات بیشتر، می‌توانید از راه‌های زیر با ما در تماس باشید:
+
+• تلفن تماس: [۰۵۱-۵۷۲۸۸۳۵۱](tel:05157288351)
+• وب‌سایت: [مرکز آموزش فنی و حرفه‌ای علامه بهلول گنابادی](https://khrtvto.ir/portal-markaz7/)
+آدرس: گناباد - شهرک آیت‌الله مدنی(شهرک بیلند) - مرکز آموزش فنی و حرفه‌ای گناباد
+🕐 *ساعت پاسخگویی:* شنبه تا چهارشنبه، ۷:۳۰ صبح تا ۱۳ بعد از ظهر
+`;
+	
+// دکمه بازگشت به منوی اصلی
+const backButton = {
+  reply_markup: {
+    inline_keyboard: [
+      [{ text: '🔙 بازگشت به منوی اصلی', callback_data: 'back_to_start' }]
+    ]
+  }
+};
+
+	await ctx.reply(otherText, { parse_mode: "Markdown" }, ...backButton);
+}
 }
