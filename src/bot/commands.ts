@@ -23,6 +23,7 @@ const educationText = `
 
 📝 *ثبت نام در پورتال آموزش*
 [ثبت‌نام در دوره](https://reg.irantvto.ir/course)
+(در صورت نیاز، کد دوره را از مربی خود دریافت کنید)
 
 🌐 *پورتال آموزش*
 [ورود به پورتال سازمان](https://www.portaltvto.com/)
@@ -34,14 +35,15 @@ const educationText = `
 const examText = `
 🎯 *کارت آزمون*
 [مشاهده و دریافت کارت ورود به جلسه آزمون](https://azmoon.portaltvto.com/card/card/index/1/80)
+(برای جلسه آزمون، حتما کارت ورود به جلسه و کارت شناسایی به همراه داشته باشید)
 
 📊 *نتایج آزمون*
 [مشاهده نتایج](https://azmoon.portaltvto.com/result/result/index/1/80)
 
 💵 *پرداخت هزینه آزمون مجدد*
 [پرداخت آنلاین](https://pay.portaltvto.com/payment/shop/prepay)
-فرم را متناسب با شاخه دوره آموزشی خود تکمیل و پرداخت را انجام دهید
-
+(فرم را متناسب با شاخه دوره آموزشی خود تکمیل و پرداخت را انجام دهید
+)
 
 💳 *پرداخت هزینه صدور گواهینامه*
 [پرداخت آنلاین](https://pay.portaltvto.com/pay/licence)
