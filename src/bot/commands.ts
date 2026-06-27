@@ -38,6 +38,11 @@ const examText = `
 📊 *نتایج آزمون*
 [مشاهده نتایج](https://azmoon.portaltvto.com/result/result/index/1/80)
 
+💵 *پرداخت هزینه آزمون مجدد*
+[پرداخت آنلاین](https://pay.portaltvto.com/payment/shop/prepay)
+فرم را متناسب با شاخه دوره آموزشی خود تکمیل و پرداخت را انجام دهید
+
+
 💳 *پرداخت هزینه صدور گواهینامه*
 [پرداخت آنلاین](https://pay.portaltvto.com/pay/licence)
 
